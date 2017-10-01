@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171001223440) do
+ActiveRecord::Schema.define(version: 20171001225412) do
+
+  create_table "admin_users", force: :cascade do |t|
+    t.string "first_name", limit: 35
+    t.string "last_name", limit: 50
+    t.string "email", limit: 100, default: "", null: false
+    t.string "username", limit: 25
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.index ["username"], name: "index_admin_users_on_username"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -34,16 +45,6 @@ ActiveRecord::Schema.define(version: 20171001223440) do
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_sections_on_course_id"
     t.index ["professor_id"], name: "index_sections_on_professor_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "first_name", limit: 35
-    t.string "last_name", limit: 50
-    t.string "email", limit: 100, default: "", null: false
-    t.string "username", limit: 25
-    t.string "password", limit: 40
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

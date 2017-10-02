@@ -1,7 +1,5 @@
 class SectionsController < ApplicationController
 
-  #layout 'admin'
-
   before_action :confirm_logged_in
   before_action :set_section, only: [:show, :edit, :update, :destroy]
 

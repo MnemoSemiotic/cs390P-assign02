@@ -14,6 +14,8 @@ class AdminUser < ApplicationRecord
                     :length => { :maximum => 100 },
                     :format => EMAIL_REGEX
 
+  scope :sorted, lambda { order('last_name ASC, first_name ASC')}
+
   def name
     "#{first_name} #{last_name}"
   end

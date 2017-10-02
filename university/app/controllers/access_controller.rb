@@ -37,13 +37,6 @@ class AccessController < ApplicationController
     redirect_to(access_login_path)
   end
 
-  private
 
-  def confirm_logged_in
-    unless session[:user_id]
-      flash[:notice] = "Log in Please"
-      redirect_to(access_login_path)
-    end
-  end
 
 end

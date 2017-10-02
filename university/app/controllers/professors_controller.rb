@@ -1,7 +1,5 @@
 class ProfessorsController < ApplicationController
 
-  #layout 'admin'
-
   before_action :confirm_logged_in
   before_action :set_professor, only: [:show, :edit, :update, :destroy]
 
